@@ -1,8 +1,5 @@
 package com.github.hcsp.datastructure;
 
-import java.util.Deque;
-import java.util.LinkedList;
-
 public class ReverseLinkedList {
     public static void main(String[] args) {
         Node node1 = new Node(1);
@@ -21,20 +18,7 @@ public class ReverseLinkedList {
     // 传递的参数是原始链表的头节点
     // 返回翻转后的链表的头节点
     public static Node reverse(Node head) {
-        Deque<Node> stack = new LinkedList();
-        Node cur = head;
-        while (cur != null) {
-            stack.push(cur);
-            cur = cur.next;
-        }
-        Node newHead = stack.pop();
-        cur = newHead;
-        while (!stack.isEmpty()) {
-            cur.next = stack.pop();
-            cur = cur.next;
-        }
-        cur.next = null;
-        return newHead;
+        return null;
     }
 
     public static class Node {
