@@ -18,17 +18,7 @@ public class ReverseLinkedList {
     // 传递的参数是原始链表的头节点
     // 返回翻转后的链表的头节点
     public static Node reverse(Node head) {
-        Node temp1 = head.next;
-        head.next = null;
-        Node temp2;
-        while (temp1 != null){
-            temp2 = temp1.next;
-            temp1.next = head;
-            head = temp1;
-            temp1 = temp2;
-        }
-
-        return head;
+        return null;
     }
 
     public static class Node {
