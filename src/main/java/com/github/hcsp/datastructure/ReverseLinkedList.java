@@ -18,7 +18,25 @@ public class ReverseLinkedList {
     // 传递的参数是原始链表的头节点
     // 返回翻转后的链表的头节点
     public static Node reverse(Node head) {
-        return null;
+        Node slow = head;
+        Node quick = head.next;
+        // 防止环形链表
+        head.next = null;
+
+        Node nextQuick = quick.next;
+
+        while (nextQuick != null) {
+            quick.next = slow;
+            slow = quick;
+            quick = nextQuick;
+
+            nextQuick = quick.next;
+        }
+
+        // 处理最后一个节点
+        quick.next = slow;
+
+        return quick;
     }
 
     public static class Node {
