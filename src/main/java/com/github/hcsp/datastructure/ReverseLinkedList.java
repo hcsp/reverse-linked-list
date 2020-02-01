@@ -1,5 +1,7 @@
 package com.github.hcsp.datastructure;
 
+import java.util.Stack;
+
 public class ReverseLinkedList {
     public static void main(String[] args) {
         Node node1 = new Node(1);
@@ -18,7 +20,22 @@ public class ReverseLinkedList {
     // 传递的参数是原始链表的头节点
     // 返回翻转后的链表的头节点
     public static Node reverse(Node head) {
-        return null;
+        Stack<Integer> valueStack = new Stack<>();
+        Node node = head;
+        while (node!=null){
+            valueStack.add(node.value);
+            node = node.next;
+        }
+
+        Node newHead = new Node(valueStack.pop());
+        node = newHead;
+        while ( !valueStack.isEmpty() ){
+            Node tmp = new Node(valueStack.pop());
+            node.next = tmp;
+            node = tmp;
+        }
+
+        return newHead;
     }
 
     public static class Node {
