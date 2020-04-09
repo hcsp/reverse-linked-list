@@ -17,8 +17,24 @@ public class ReverseLinkedList {
     // 原地翻转一个单链表
     // 传递的参数是原始链表的头节点
     // 返回翻转后的链表的头节点
+    //将当前节点cur的下一个节点 cur.getNext()缓存到temp后，然后更改当前节点指针指向上一结点pre。
+    // 也就是说在反转当前结点指针指向前，先把当前结点的指针域用tmp临时保存，以便下一次使用
     public static Node reverse(Node head) {
-        return null;
+        Node cur = head;
+        Node myNext = null;
+
+        while (cur!=null){
+            Node nextTemp = cur.getNext(); //临时变量保存当前结点的下一个结点
+            cur.next = myNext;             //将1指向myNext即指向空
+
+            //指针移动
+            myNext =cur;
+            cur = nextTemp;
+
+
+        }
+        return  myNext;
+
     }
 
     public static class Node {
@@ -27,6 +43,15 @@ public class ReverseLinkedList {
 
         public Node(int value) {
             this.value = value;
+        }
+
+
+        public Node getNext() {
+            return next;
+        }
+
+        public void setNext(Node next) {
+            this.next = next;
         }
     }
 
