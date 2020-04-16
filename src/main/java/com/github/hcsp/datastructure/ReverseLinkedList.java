@@ -21,9 +21,12 @@ public class ReverseLinkedList {
         if (head == null || head.next == null) {
             return head;
         }
+
         Node reHead = reverse(head.next);
+
         head.next.next = head;
         head.next = null;
+
         return reHead;
     }
 
