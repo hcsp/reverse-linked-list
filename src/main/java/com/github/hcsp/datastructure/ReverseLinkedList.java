@@ -21,11 +21,11 @@ public class ReverseLinkedList {
         Node current = head;
         Node newHead = null;
 
-        while(current != null) {
-           Node next = current.next;
-           current.next = newHead;
-           newHead = current;
-           current = next;
+        while (current != null) {
+            Node next = current.next;
+            current.next = newHead;
+            newHead = current;
+            current = next;
         }
         return newHead;
     }
