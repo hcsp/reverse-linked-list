@@ -11,14 +11,41 @@ public class ReverseLinkedList {
         node3.next = node4;
 
         print(node1);
+        System.out.println();
         print(reverse(node1));
+        System.out.println();
+        print(reverseLoop(node1));
     }
 
     // 原地翻转一个单链表
     // 传递的参数是原始链表的头节点
     // 返回翻转后的链表的头节点
     public static Node reverse(Node head) {
-        return null;
+        if (head == null || head.next == null) {
+            return head;
+        }
+        Node last = reverse(head.next);
+        head.next.next = head;
+        head.next = null;
+        return last;
+    }
+
+    public static Node reverseLoop(Node head) {
+        if (head == null) {
+            return null;
+        }
+
+        Node dummy = new Node(-1);
+        dummy.next = head;
+        Node pre = dummy.next;
+        Node cur = pre.next;
+        while (cur != null) {
+            pre.next = cur.next;
+            cur.next = dummy.next;
+            dummy.next = cur;
+            cur = pre.next;
+        }
+        return dummy.next;
     }
 
     public static class Node {
