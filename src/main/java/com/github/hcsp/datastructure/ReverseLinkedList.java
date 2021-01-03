@@ -24,14 +24,14 @@ public class ReverseLinkedList {
         //2 / 4
         Node next = head.next;
         //3 / null
-        Node new_head = reverse(next);
+        Node newHead = reverse(next);
 
         //3 - 2 - 1
         next.next = head;
         // 1 - null
         head.next = null;
         // 3 - 4
-        return new_head;
+        return newHead;
     }
 
     public static class Node {
