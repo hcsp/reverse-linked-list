@@ -11,6 +11,7 @@ public class ReverseLinkedList {
         node3.next = node4;
 
         print(node1);
+        System.out.println("");
         print(reverse(node1));
     }
 
@@ -18,7 +19,14 @@ public class ReverseLinkedList {
     // 传递的参数是原始链表的头节点
     // 返回翻转后的链表的头节点
     public static Node reverse(Node head) {
-        return null;
+        Node previousNode = null;
+        while (null != head) {
+            Node next = head.next;
+            head.next = previousNode;
+            previousNode = head;
+            head = next;
+        }
+        return previousNode;
     }
 
     public static class Node {
