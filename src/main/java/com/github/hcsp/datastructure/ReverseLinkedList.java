@@ -17,27 +17,36 @@ public class ReverseLinkedList {
     // 原地翻转一个单链表
     // 传递的参数是原始链表的头节点
     // 返回翻转后的链表的头节点
-    public static Node reverse(Node head) {
-        return null;
-    }
 
-    public static class Node {
-        int value;
-        Node next;
-
-        public Node(int value) {
-            this.value = value;
+    class LinkedListNode<T> {
+        T data;
+        LinkedListNode<T> next;
+    
+    public LinkedListNode(T data) {
+        this.data = data;
         }
     }
-
-    private static void print(Node head) {
-        Node current = head;
-        while (current != null) {
-            System.out.print(current.value);
-            if (current.next != null) {
-                System.out.print("->");
-            }
-            current = current.next;
+    
+     public static void print(LinkedListNode<Integer> head){
+        while(head != null) {
+            System.out.print(head.data + " ");
+            head = head.next;
         }
+        
+        System.out.println();
     }
+    
+    public class Solution {
+
+	    public static void printReverse(LinkedListNode<Integer> root) {
+        
+        if(root==null){
+            return ;
+        }
+        
+        printReverse(root.next);
+        System.out.print(root.data+" ");
+        
+	}
+
 }
