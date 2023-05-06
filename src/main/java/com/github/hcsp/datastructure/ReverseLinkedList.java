@@ -1,7 +1,5 @@
 package com.github.hcsp.datastructure;
 
-import java.util.Objects;
-
 public class ReverseLinkedList {
     public static void main(String[] args) {
         Node node1 = new Node(1);
